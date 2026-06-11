@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Should I Eat? | Multi-Color Pro Selection Tool</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-layout">
+        
+        <header class="app-header">
+            <div class="header-logo">
+                <div class="logo-icon">🎯</div>
+                <div class="logo-text">
+                    <h1>Food Picker</h1>
+                    <p>Fair & Randomized Food Selection • Click food items below to edit</p>
+                </div>
+            </div>
+            <div class="class-badge" id="studentCounter"></div>
+        </header>
+        <main class="main-content">
+            
+            <section class="roster-panel">
+                <div class="panel-card input-card">
+                    <h2>Add New Food</h2>
+                    <div class="input-group">
+                        <input type="text" id="studentInput" placeholder="Type name and press Enter or click Add...">
+                        <button id="addBtn" class="btn btn-teal">Add Food</button>
+                    </div>
+                </div>
+
+                <div class="panel-card list-card">
+                    <div class="list-header">
+                        <h2>Food Menu</h2>
+                        <input type="text" id="searchInput" placeholder="🔍 Filter names...">
+                    </div>
+                    <div class="student-grid" id="rosterGrid">
+                        </div>
+                </div>
+            </section>
+
+            <aside class="picker-panel">
+                <div class="panel-card picker-card">
+                    <h2>Random Selector</h2>
+                    
+                    <div class="selection-display" id="pickerScreen">
+                        <div class="display-state active" id="stateIdle">
+                            <div class="giant-icon">🎲</div>
+                            <p>Ready to spin the food menu</p>
+                        </div>
+                        <div class="display-state hidden" id="stateSpinning">
+                            <div class="spinner-ring"></div>
+                            <p>Selecting food...</p>
+                        </div>
+                        <div class="display-state hidden" id="stateWinner">
+                            <div class="winner-avatar" id="winnerInitial">?</div>
+                            <h3 id="winnerName">John Doe</h3>
+                            <span class="badge-selected">Selected</span>
+                        </div>
+                    </div>
+
+                    <button id="spinBtn" class="btn btn-orange btn-large">
+                        <span class="btn-icon">⚡</span> Spin the Food Menu
+                    </button>
+                </div>
+
+                <div class="panel-card history-card">
+                    <h2>Recent Selections</h2>
+                    <div class="history-list" id="historyContainer">
+                        <p class="empty-history" id="emptyHistoryText">No selections made yet today.</p>
+                    </div>
+                </div>
+            </aside>
+
+        </main>
+    </div>
+
+    <div class="modal-overlay hidden" id="winnerModal">
+        <div class="modal-card">
+            <div class="modal-confetti">🎉</div>
+            <p class="modal-caption">The Winner Is</p>
+            <h2 class="modal-winner-title" id="modalName">Food Name</h2>
+            <div class="modal-actions">
+                <button id="modalCloseBtn" class="btn btn-dark">Awesome</button>
+                <button id="modalRespinBtn" class="btn btn-yellow">Spin Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
