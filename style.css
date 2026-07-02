@@ -412,3 +412,134 @@ input[type="text"]:focus {
 @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes slideDown { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+/* ==========================================================================
+   Ghanaian Jollof Recipe Toast System
+   ========================================================================== */
+.recipe-toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 380px;
+    max-height: 420px;
+    background: var(--surface-glass);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-heavy);
+    border: 2px solid var(--color-yellow);
+    padding: 24px;
+    z-index: 2000; /* Layered safely above grid containers */
+    display: flex;
+    flex-direction: column;
+    animation: slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Entry Animation Sequence */
+@keyframes slideInRight {
+    from {
+        transform: translateX(120%) translateY(0);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Programmatic Removal Animation Class Override */
+.recipe-toast.toast-hidden {
+    opacity: 0;
+    transform: translateX(60px) scale(0.92);
+    pointer-events: none;
+}
+
+/* Header & Meta Typography Elements */
+.toast-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-right: 24px;
+}
+
+.toast-icon {
+    font-size: 24px;
+}
+
+.toast-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--color-orange);
+    letter-spacing: -0.3px;
+}
+
+/* Scrollable Recipe Text Field Container */
+.toast-body {
+    overflow-y: auto;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-main);
+    padding-right: 6px;
+}
+
+.toast-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.toast-body::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+    border-radius: 10px;
+}
+
+.toast-body p {
+    margin-bottom: 12px;
+}
+
+.toast-body ol {
+    padding-left: 20px;
+}
+
+.toast-body li {
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.toast-body strong {
+    font-weight: 700;
+    color: var(--color-teal);
+}
+
+/* Close "X" Vector Trigger Button */
+.toast-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    line-height: 1;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.toast-close-btn:hover {
+    color: #ef4444;
+    background: #fee2e2;
+}
+
+/* Breakpoint adjustment rule wrapper for mobile viewport screens */
+@media (max-width: 480px) {
+    .recipe-toast {
+        bottom: 16px;
+        right: 16px;
+        left: 16px;
+        width: auto;
+        max-height: 45vh;
+    }
+}

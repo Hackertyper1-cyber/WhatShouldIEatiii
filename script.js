@@ -223,3 +223,48 @@ modalRespinBtn.addEventListener('click', () => {
 
 // App Initiation Call
 updateRosterUI();
+// App Initiation Call
+updateRosterUI();
+
+// ==========================================================================
+// Initialization Cycle: Self-Contained Ghanaian Jollof Toast System
+// ==========================================================================
+(function initJollofToast() {
+    // 1. Build structure dynamically to minimize index.html asset dependencies
+    const toastNode = document.createElement('div');
+    toastNode.className = 'recipe-toast';
+    toastNode.id = 'jollofToast';
+    
+    toastNode.innerHTML = `
+        <button class="toast-close-btn" id="closeToastBtn" aria-label="Close notification">&times;</button>
+        <div class="toast-header">
+            <span class="toast-icon">🇬🇭</span>
+            <h3>How to Prepare Ghanaian Jollof</h3>
+        </div>
+        <div class="toast-body">
+            <p><strong>Ingredients:</strong> Jasmine rice, tomato paste, blended tomatoes, onions, scotch bonnets, ginger, garlic, meat stock, curry powder, and a touch of nutmeg.</p>
+            <ol>
+                <li><strong>The Stew Base:</strong> Sauté sliced onions in oil. Add tomato paste and fry for 5–10 mins. Pour in blended tomato/pepper mixture and cook down until oil surfaces.</li>
+                <li><strong>Flavors & Stock:</strong> Stir in fresh ginger, garlic, curry, nutmeg, and your rich meat stock. Let simmer until highly fragrant.</li>
+                <li><strong>The Rice integration:</strong> Thoroughly wash jasmine rice to eliminate excess starch. Stir it directly into the hot stew until evenly coated.</li>
+                <li><strong>The Steam Process:</strong> Ensure stock levels barely match the rice. Seal tightly with aluminum foil and a heavy lid. Steam on low heat until perfectly tender and smoky.</li>
+            </ol>
+        </div>
+    `;
+
+    // 2. Append directly inside the running body landscape scope
+    document.body.appendChild(toastNode);
+
+    // 3. Functional Node Scoped Event Handler Closures
+    const closeBtn = toastNode.querySelector('#closeToastBtn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            toastNode.classList.add('toast-hidden');
+            
+            // Allow CSS transition timing frames to resolve gracefully before deleting DOM node references
+            setTimeout(() => {
+                toastNode.remove();
+            }, 300);
+        });
+    }
+})();
